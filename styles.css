@@ -1,0 +1,33 @@
+/* Body and layout setup */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    height: 100vh;
+}
+
+/* Main container that holds the map and the Dash app */
+#main-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+/* Container for the map */
+#map-container {
+    width: 25%;  /* 25% width for the map */
+    height: 100%;
+    border-right: 2px solid #ccc;  /* Add border between map and Dash app */
+}
+
+/* Container for the Dash app */
+#dash-container {
+    width: 75%;  /* 75% width for the Dash app */
+    height: 100%;
+}
+
+/* Make the map occupy the full height and width of the map container */
+#map {
+    width: 100%;
+    height: 100%;
+}

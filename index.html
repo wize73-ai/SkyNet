@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sky View Rendering Application</title>
+    <!-- Load Leaflet CSS for map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+    <!-- Load local CSS file -->
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div id="main-container">
+        <!-- Container for the map -->
+        <div id="map-container">
+            <div id="map"></div>
+        </div>
+        <!-- Container for the Dash app -->
+        <div id="dash-container">
+            <div id="dash-app"></div>
+        </div>
+    </div>
+
+    <!-- Load Leaflet JS for interactive maps -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <script>
+        // Initialize Leaflet map
+        var map = L.map('map').setView([0, 0], 2);  // Default view over equator
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 18
+        }).addTo(map);
+
+        // Click event to capture coordinates
+        map.on('click', function(e) {
+            var coord = e.latlng;
+            var lat = coord.lat;
+            var lng = coord.lng;
+            alert("You clicked the map at latitude: " + lat + " and longitude: " + lng);
+            // You can send these coordinates to the backend to filter the sky view
+        });
+    </script>
+
+    <!-- Dash content will be rendered dynamically via Flask -->
+</body>
+</html>
